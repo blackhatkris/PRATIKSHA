@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knew you would say yes!shiksha my lovee</title>
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Text to display initially -->
+        <h1 class="header_text" id="message">Knew you would say yes!</h1>
+
+        <!-- GIF to display initially -->
+        <div class="gif_container" id="gif-container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3Q5azN4MzFncmlmcG1xMGpqbW5taHZodzExNzIzcWR6eDd3dGIybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yoJC2GnSClbPOkV0eA/giphy.gif" alt="GIF" id="gif">
+        </div>
+
+        <!-- Video element that will be shown after delay -->
+        <div class="video-container" id="video-container" style="display:none;">
+            <video id="video" loop muted playsinline>
+                <source src="//cdn-cf-east.streamable.com/video/mp4/g4dck4.mp4?Expires=1739078898663&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ&Signature=YPTQwWNROXXxY8ULEh2Wo7X1RFgRxxvDrw8HcSqXsx821wW74lzFGHWCUieSI4~6DMJUVClmV2iAKD03JaWAMheZJamlpYjNPa-LyYZwcPgMjse-H0YYhQPkwUQNvEAIt2-dTibIEC0lv-5bdid5bsn~C7L6gkRGSdTm-9rEAc0VmCA5Uc6utuOploeZ0IRWCzK7mPqewB0Z042cG-Xm6Lu6RI95aaUfRIJrqWedzYUN3YQlvSKlITGSuMiyGZ0byq9WHqNfGu0cQYB9vh84Kc33kcpyQIWdCM7OgbALb65yzMGiuVyO25VTkIrH70wIbctODqFJESfu8ZrPTGpMMw__" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Set timeout to hide the GIF and message after 3 seconds and show the video
+        setTimeout(function() {
+            // Hide GIF and message
+            document.getElementById("message").style.display = "none"; // Hide the message
+            document.getElementById("gif-container").style.display = "none"; // Hide the GIF
+
+            // Show video container
+            var videoContainer = document.getElementById("video-container");
+            videoContainer.style.display = "block"; // Show the video container
+
+            // Play the video explicitly using JavaScript
+            var video = document.getElementById("video");
+            video.play(); // Play the video immediately
+
+            // Ensure the video continues playing
+            video.oncanplaythrough = function() {
+                // Remove mute only after video is ready
+                video.muted = false;
+            };
+        }, 1000); // Delay of 3 seconds before showing video
+    </script>
+</body>
+</html>
